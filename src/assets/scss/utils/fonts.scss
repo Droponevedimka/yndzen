@@ -1,0 +1,28 @@
+// Fonts here
+// see more: https://github.com/vedees/webpack-template/blob/master/README.md#import-js-files
+@font-face {
+    font-family: Ys-Bold;
+    src: url('/assets/fonts/Ys/YandexSansText-Bold.eot'), /* IE9 Compat Modes */
+         url("/assets/fonts/Ys/YandexSansText-Bold.eot?#iefix") format("embedded-opentype"),
+         url("/assets/fonts/Ys/YandexSansText-Bold.woff") format("woff"), 
+         url('/assets/fonts/Ys/YandexSansText-Bold.ttf')  format('truetype'); /* Safari, Android, iOS */
+         //  url('/assets/fonts/HelveticaNeueCyr/Black/HelveticaNeueCyr-Black.svg') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+    font-family: Ys-Light;
+    src: url('/assets/fonts/Ys/YandexSansText-Light.eot'), /* IE9 Compat Modes */
+         url("/assets/fonts/Ys/YandexSansText-Light.eot?#iefix") format("embedded-opentype"),
+         url("/assets/fonts/Ys/YandexSansText-Light.woff") format("woff"), 
+         url('/assets/fonts/Ys/YandexSansText-Light.ttf')  format('truetype'); /* Safari, Android, iOS */
+         //  url('/assets/fonts/HelveticaNeueCyr/Black/HelveticaNeueCyr-Black.svg') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+    font-family: Ys-Regular;
+    src: url('/assets/fonts/Ys/YandexSansText-Regular.eot'), /* IE9 Compat Modes */
+         url("/assets/fonts/Ys/YandexSansText-Regular.eot?#iefix") format("embedded-opentype"),
+         url("/assets/fonts/Ys/YandexSansText-Regular.woff") format("woff"), 
+         url('/assets/fonts/Ys/YandexSansText-Regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+         //  url('/assets/fonts/HelveticaNeueCyr/Black/HelveticaNeueCyr-Black.svg') format('svg'); /* Legacy iOS */
+}

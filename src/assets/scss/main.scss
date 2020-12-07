@@ -1,0 +1,1035 @@
+@import "utils/libs";
+@import "utils/vars";
+@import "utils/mixins";
+@import "utils/fonts";
+@import "utils/reset";
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  @media screen and (max-width: $desktopWidth) {    
+    margin: 0;
+  }
+  @media screen and (max-width: $desktopTextAdaptive ) {
+    margin: 0;
+  }
+  @media screen and (max-width: $smDesktopWidth) {
+    margin: 0;
+  }
+  @media screen and (max-width: $tableWidth) {
+    height: auto;
+  }
+  @media screen and (max-width: $phoneWidth ) {
+    margin: 0;
+  }
+}
+
+.html__hidden{
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $mainFont;
+	font-size: $mainFontSize;
+  font-weight: $mainFontWeight;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  width: 100%;
+  min-height: 750px;  
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+
+  @media screen and (max-height:750px) {
+    min-height: 700px;
+  }
+  @media screen and (max-height:750px) and (max-width: $smDesktopWidth) {
+    min-height: 500px; 
+  } 
+
+  @media screen and (max-width: $desktopWidth) {
+    font-size: 1vw;
+  }
+  @media screen and (max-width: $desktopTextAdaptive ) {
+    font-size: 1.05vw;
+  }
+  @media screen and (max-width: $smDesktopWidth) {
+    font-size: 1.05vw;
+  }
+  @media screen and (max-width: $tableWidth) {
+    font-size: 1.9vw;
+    height: auto;
+  }
+  @media screen and (max-width: $phoneWidth ) {
+    font-size: 1.9vw;
+    min-height: auto;
+  }
+}
+
+body:not(.app-mounted) .spinner {
+  display: block;
+}
+
+*, *:before, *:after { box-sizing: border-box; }
+
+h1, h2, h3, h4, h5, h6 { margin: 0; }
+
+a { text-decoration: none; }
+
+#app {
+  display: block;
+  position: relative;
+  max-width: 1920px;   
+  width: 100%; 
+  height: 100vh;
+  max-height: 1080px;
+
+  
+  @media screen and (max-width: $desktopTextAdaptive ) {
+    
+  }
+  @media screen and (max-width: $tableWidth) {
+    flex-direction: column;
+    padding: 0;
+    max-height: none;
+    height: auto;
+    min-height: 100vh;    
+  }  
+  @media screen and(max-width: $phoneWidth){
+    height: auto;    
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+}
+
+.spinner{
+  display: none;
+}
+
+.home{  
+  position: absolute;
+  display: flex;
+  flex-direction: row;  
+  width: 100%;
+  height: 100%;
+  padding: 0 2.5% 0 8.75%;
+  @media screen and (max-width: $desktopTextAdaptive ) {
+    
+  }
+  @media screen and (max-width: $tableWidth) {
+    position: relative;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
+  @media screen and(max-width: $phoneWidth){    
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  &__content {
+    display: flex;    
+    align-items: center;
+    flex-direction: column;
+    max-width: $desktopWidth;
+    justify-content: center;
+    @media screen and (max-width: $tableWidth) {      
+      align-items: center;   
+      justify-content: flex-start;
+      padding: 0; 
+    }  
+  }
+
+  &-left{    
+    width: 40%;
+    z-index: 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @media screen and (max-width: $desktopWidth) {
+      justify-content: center;      
+    }
+
+    @media screen and(max-width: $tableWidth){
+      width: 100%;
+      display: block;
+    }
+    @media screen and(max-width: $phoneWidth){
+      margin-top: -5%;      
+      position: relative;
+    }
+ 
+    &-width{
+      margin-top: 10.5%;
+      margin-bottom: 2.5%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      max-height: 896px;
+      @media screen and (max-height:800px) and (min-width: $tableWidth) {
+        margin: 2.5% 0;
+      }   
+      @media screen and (max-width: $desktopWidth) {
+        max-height: 700px;
+        margin: 0;
+      }  
+      @media screen and (max-width: $desktopTextAdaptive ) {
+        max-height: 47.5vw;   
+        margin-top: -6%;     
+      }
+      @media screen and (max-width: $tableWidth) {
+        margin: 0;
+        width: 100%;
+        max-height: none;
+        height: auto;
+      } 
+      @media screen and(max-width: $phoneWidth){
+        height: 100%;        
+        display: block;        
+      }
+
+      &__block{
+        display: flex;
+        flex-direction: column;        
+        @media screen and (max-width: $tableWidth){
+          padding: 0 5% 0 2.55%; 
+        }
+      }
+    }
+
+    &-title{
+      color: $homeGray-color;
+      margin-bottom: 4%;
+      @media screen and(max-width: $tableWidth){
+        margin: 3% 0 0 0 ;
+        font-size: 2.3em;
+      }
+
+      a{
+        color: $homeGray-color;
+        border-bottom: 1px solid $homeGray-color;
+      }
+
+      a:hover{
+        opacity: 0.5;
+        border-bottom: none;
+      }
+    }
+
+    &-name{ 
+      width: 150%;
+      font-family: Ys-Bold;
+      font-weight: normal;
+      margin-left: -1%;
+      font-size: 7.25em;      
+      line-height: 85%;    
+      color: $homeTextBlack-color;
+      @media screen and(max-width: $tableWidth){
+        width: 100%;
+        order: -1;
+      }
+    }
+
+    &-text{
+      font-size: 1.2em;
+      line-height: 130%;      
+      color: $black-color;
+      margin-top: 13.2%;
+      @media screen and(max-width: $tableWidth){
+        width: 80%;
+        font-size: 2.5em;
+        margin: 5% 0 20% 0;
+      }  
+      @media screen and (max-width: $phoneWidth){
+        margin-bottom: 5%;
+      }         
+      
+    }
+  }
+
+  &-right{
+    width: 60%;
+    z-index: 1;
+    overflow: hidden;
+    @media screen and (max-width: $tableWidth) {
+      order: -1;
+      width: 100%;
+      padding: 0 5% 0 2.55%; 
+      display: block;
+    }
+    @media screen and (max-width: $phoneWidth){
+      overflow: visible;
+    }
+    
+    &-img{
+      width: 100%;
+      max-width: 1042.45px;
+      object-fit: contain;
+      margin-top: 5%;
+      @media screen and (max-width: $desktopTextAdaptive ) {
+        
+      }
+      @media screen and (max-width: $tableWidth) {
+       padding: 0 5% 0 2.55%;
+       margin-top: 0;
+      }
+      @media screen and (max-width: $phoneWidth) {
+        
+      }
+    }
+  }
+
+  &-link{
+    cursor: pointer;    
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 410.23px;
+
+    @media screen and (max-width: $desktopWidth) {
+      max-width: 20vw;
+    }
+    @media screen and(max-width: $tableWidth){
+      max-width: none;           
+    }
+    @media screen and (max-width: $phoneWidth) {
+      position: relative;
+      margin-top: 5%;
+    }
+    @media screen and (max-width: $phoneWidth) and (max-height: 510px){
+      position: relative;
+    }
+  
+    &-text{
+      background: $backOrange-color;
+      color: $white-color;   
+      font-size: 1.75em;
+      height: 2.77em;  
+      line-height: 2.77em;
+      border-radius: 0.5em;
+      @media screen and(max-width: $tableWidth){
+        border-radius: 0;
+        height: 3em;
+        line-height: 3em;
+        font-size: 3.5em;
+      }
+    }
+  }
+}
+
+
+// TEST 
+
+.test{
+  position: absolute;
+  display: flex;
+  flex-direction: row;  
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0 2.5%;
+
+  @media screen and (max-height:750px) {
+    margin: 2.5% 0;
+  }
+  @media screen and (max-width: $desktopTextAdaptive ) {
+    
+  }
+  @media screen and (max-width: $tableWidth) {
+    position: relative;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+    min-height: 100vh;
+  }
+  @media screen and(max-width: $phoneWidth){    
+    justify-content: space-between;
+  }
+
+  &-content{
+    display: flex;    
+    flex-direction: column;
+    align-items: flex-end;
+
+    @media screen and (max-width: $tableWidth) {      
+      align-items: center;   
+      justify-content: flex-start;
+      padding: 0; 
+    }  
+  }
+
+  &__left{
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 100%;
+    max-height: 782px;
+    color: $black-color;
+    @media screen and (max-width: $desktopTextAdaptive ) {
+      max-height: 650px;
+    }
+    @media screen and (max-width: $smDesktopWidth) {
+      max-height: 520px;
+    }
+    @media screen and (max-width: $tableWidth) {
+      width: 100%;
+      padding: 0;
+      max-height: none;
+      height: auto;
+      display: block;
+    }
+
+    &-number{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 10%;
+      max-width: 77.5px;
+      @media screen and (max-width: $tableWidth) {
+        display: none;
+      }
+      &-img{
+        height: 100%;
+        object-fit: contain;
+      }
+      &-text{
+        font-size: 2em;
+        font-weight: bold;
+      }
+    }
+
+    &-block{
+      height: 100%;
+      width: 87%;
+      margin-left: 3%;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      @media screen and (max-width: $desktopTextAdaptive ) {
+        margin-left: 6%;
+      }
+      @media screen and (max-width: $smDesktopWidth) {
+        margin-left: 10%;
+      }
+      @media screen and (max-width: $tableWidth) {
+        margin: 0;
+        width: 100%;
+        display: block;
+      }
+
+      &-title{
+        width: 105%;
+        font-size: 1.55em;
+        @media screen and (max-width: $tableWidth) {          
+          width: 90%;
+          margin: 5%;
+          font-size: 3.2em;
+        }
+      }
+      &-answers{
+        width: 105%;
+        height: 60%;
+        max-height: 436px;
+        display: grid;        
+        border-radius: 50px;
+        grid-template-columns: 50% 50%;
+        overflow: hidden;
+        background: transparent;
+
+        @media screen and (max-width: $desktopTextAdaptive ) {
+          max-height: 350px;
+        }
+        @media screen and (max-width: $smDesktopWidth) {
+          max-height: 280px;
+        }
+        @media screen and (max-width: $tableWidth) {          
+          width: 100%;
+          grid-template-columns: 100%;
+          border-radius: 0;
+          max-height: none;
+          margin: 0%;        
+        }
+        @media screen and (max-width: $phoneWidth) {
+          
+          overflow: visible;
+        }
+
+        .answer-1{
+          border-right: 2px solid $black-color;
+          border-bottom: 2px solid $black-color;
+          @media screen and (max-width: $tableWidth) {          
+            border-bottom: none;
+            border-right: none;
+          }
+        }         
+        .answer-2{
+          border-bottom: 2px solid $black-color;
+          @media screen and (max-width: $tableWidth) {          
+            border-bottom: none;
+          }
+        }     
+        .answer-3{
+          border-right: 2px solid $black-color;
+          @media screen and (max-width: $tableWidth) {          
+            border-right: none;
+          }
+        }    
+
+        &-item{        
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-start;
+          cursor: pointer;
+          background: $backOrange-color;          
+          color: $white-color;
+
+          @media screen and (max-width: $tableWidth) {          
+            border-top: 2px solid $black-color;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 5%;
+          }
+
+          &-text{
+            width: 80%;
+            margin-top: 17%;
+            margin-right: 5%;
+            max-width: 320px;
+            font-size: 1.1em;
+            text-transform: uppercase;   
+            word-wrap: break-word;      
+            @media screen and (max-width: $desktopTextAdaptive ) {
+              width: 85%;
+            }
+            @media screen and (max-width: $smDesktopWidth) {
+              
+            }
+            @media screen and (max-width: $tableWidth) {
+              max-width: none;
+              margin: 0 2.5%;
+              padding: 5% 0;
+              font-size: 2.2em;
+              text-transform: none;
+            }
+            @media screen and (max-width: $phoneWidth) {
+              font-size: 2.6em;
+              line-height: 1.5em;
+              margin: 0;
+              padding: 8% 0;
+            }
+
+            b{
+              text-transform: none;  
+            }
+
+            svg{
+              margin-right: 5%; 
+              margin-bottom: 2%;   
+              @media screen and (max-width: $tableWidth) {
+                margin-right: 2.5%;
+                margin-bottom: 1%;
+                width: 1em;
+              }          
+            }            
+          }   
+          
+        }
+
+        &-item.isBlack{
+          background: $black-color;
+        }
+        &-item.isWhite{
+          background: $white-color;
+          color: $black-color;
+        }
+        
+        &-item.backWhite{
+          @media screen and (max-width: $tableWidth) {          
+            border-top: 2px solid $white-color;
+          }
+        }
+
+        &-item.isWhite p svg{
+          fill: #000;
+        }
+
+        &-item.backWhite.answer-1{
+          border-right: 2px solid $white-color;
+          border-bottom: 2px solid $white-color;
+          @media screen and (max-width: $tableWidth) {          
+            border-bottom: none;
+            border-right: none;
+          }
+        }  
+        &-item.backWhite.answer-2{
+          border-bottom: 2px solid $white-color;
+          @media screen and (max-width: $tableWidth) {          
+            border-bottom: none;
+          }
+        }   
+        &-item.backWhite.answer-3{
+          border-right: 2px solid $white-color;
+          @media screen and (max-width: $tableWidth) {          
+            border-right: none;
+          }
+        }   
+
+        &-item:hover{          
+          @media screen and (min-width: $tableWidth) {          
+            background: transparent;
+          }
+        }
+        &-item.backWhite:hover{
+          color: $black-color;
+        }
+        &-item.backWhite:hover p svg{
+          fill: $black-color;
+        }
+
+        &-item.isWhite:hover{
+          color: $white-color;
+        }
+        &-item.isWhite:hover p svg{
+          fill: $white-color;
+        }
+      }
+    }
+  }
+
+  &__white{
+    color: $white-color;
+  }
+
+  &__right{
+    width: 55%;
+    height: 100%; 
+    display: block;
+    position: relative; 
+    z-index: 1;  
+    @media screen and (max-width: $tableWidth) {
+      order: -1;
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      display: block;
+    }
+    &-img{        
+      object-fit: contain;
+      
+      width: 100%;
+      height: 100%;
+      @media screen and (max-width: $tableWidth) {
+        display: none;
+      }
+
+      &.mob{
+        display: none;
+        @media screen and (max-width: $tableWidth) {
+          display: block;
+        }
+      }
+    }    
+    &-number{
+      display: none;      
+      font-size: 5vw;
+      line-height: 5vw;
+      margin: 2% 0 2% 5%;
+      color: #000000;
+      font-weight: bold;
+      @media screen and (max-width: $tableWidth) {        
+        display: block;        
+      }
+    }
+
+    &-number.isWhite{
+      color: #ffffff;
+    }
+    
+  }
+}
+
+
+// Modal
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease-out;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.modal-enter-active, .modal-leave-active {
+  transition: opacity .5s;
+}
+.modal-enter, .modal-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
+}
+
+.overlay {  
+  background-color: $white-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: 999;
+  transition: opacity 0.4s ease-out;
+  @media screen and (max-height:525px) {   
+    align-items: flex-start;
+    overflow: scroll;
+  }   
+
+  @media screen and (max-width: $tableWidth) {
+    overflow: scroll;
+    display: block;
+  }
+ 
+}
+
+.modal{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  max-width: 1920px;   
+  width: 100%; 
+  height: 100vh;
+  max-height: 1080px;
+  padding: 2.5% 2.5% 0 8.5%;
+  @media screen and (max-width: $desktopWidth){
+    padding-top: 0;
+    margin-top: -5%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (max-height: 700px) {
+    margin-top: 0;
+  }
+
+  @media screen and (max-width: $desktopTextAdaptive ) {
+    
+  }
+  @media screen and (max-width: $tableWidth) {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    max-height: none;
+    height: auto;
+    min-height: 100vh;   
+  }  
+  @media screen and(max-width: $phoneWidth){
+    height: 100%;
+    margin-top: 0;
+  }
+
+  &__left{
+    width: 40%;
+    @media screen and (max-width: $tableWidth) {
+      width: 100%;      
+    }  
+    @media screen and(max-width: $phoneWidth){
+      height: 100%;
+      flex-grow: 1;
+      display: block;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &-role{
+      line-height: 125%;      
+      color: #000000;
+      opacity: 0.5;
+      @media screen and (max-width: $tableWidth) {       
+        font-size: 2.7em;
+        margin: 0 5%;
+      } 
+    }
+
+    &-name{
+      line-height: 85%;      
+      letter-spacing: -0.02em;
+      font-size: 5em;
+      color: #000000;
+      font-family: Ys-Bold;
+      margin: 5% 0 11% -1%;
+      @media screen and (max-width: $tableWidth) {        
+        width: 95%;
+        font-size: 7.3em;
+        margin: 2% 5% 5% 5%;
+      }  
+      @media screen and(max-width: $phoneWidth){
+       
+      }
+    }
+
+    &-text{
+      font-size: 1.2em;      
+      margin-bottom: 8%;
+      max-width: 500px;
+      @media screen and (max-width: $tableWidth) {       
+        margin: 0 5%;
+        font-size: 2.7em;
+        max-width: none;
+        .br{
+          display: none;
+        }
+      } 
+    }
+
+    &-next{
+      width: 55%;
+      max-width: 365px;
+      height: 80px;
+      line-height: 80px;
+      display: block;
+      text-align: center;
+      font-size: 1.75em;
+      color: $white-color;
+      font-style: italic;
+      background: $backOrange-color;
+      cursor: pointer;
+      @media screen and (max-width: $desktopTextAdaptive ) {
+        max-width: none;
+        width: 65%;
+        height: 3em;
+        line-height: 3em;
+      }
+      @media screen and (max-width: $tableWidth) {       
+        font-style: normal;
+        width: 100%;
+        height: 3em;
+        line-height: 3em;
+        font-size: 3em;
+        margin-top: 5%;
+      } 
+      @media screen and (max-width: $phoneWidth) {
+        
+      }
+    }
+
+  }
+
+  &__right{
+    width: 60%;
+    height: 100%;
+    @media screen and (max-width: $tableWidth) {
+      order: -1;
+      width: 100%;
+      max-width: 600px;
+    }  
+    @media screen and(max-width: $phoneWidth){
+      height: 40%;
+      max-height: 45vh;
+    }
+
+    &-img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+}
+
+
+// FINAL
+
+.final{
+  position: absolute;
+  display: flex;
+  flex-direction: row;  
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 0 2.5% 0 8.75%;
+  @media screen and (max-height:750px) {
+    min-height: 700px; 
+  }   
+  @media screen and (max-height:750px) and (max-width: $desktopTextAdaptive) {
+    min-height: 500px; 
+  } 
+  @media screen and (max-width: $desktopTextAdaptive ) {
+    
+  }
+  @media screen and (max-width: $tableWidth) {
+    position: relative;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
+  @media screen and(max-width: $phoneWidth){
+    height: 100vh;
+    justify-content: space-between;
+  }
+
+  &__left{
+    width: 40%;
+    color: $black-color;
+    @media screen and (max-width: $tableWidth) {
+      width: 100%;
+      display: block;
+    }
+
+    &-block{
+      margin-top: 8%;
+      @media screen and (max-width: $desktopWidth ) {
+        margin-top: -10%;
+        padding-right: 5%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      @media screen and (max-width: $tableWidth) {
+        margin: 0 5% 5% 5%;
+      }
+      @media screen and (max-height:825px) {
+        margin-top: 0;
+      }
+
+      @media screen and (max-height:750px) {
+        margin-top: 2%;
+        margin-bottom: 2%;
+      } 
+
+      &-p{
+        line-height: 125%;         
+        opacity: 0.5;
+        font-size: 1.8em;
+        @media screen and (max-width: $tableWidth) {
+          font-size: 2.5em;
+        }
+      }
+
+      &-title{
+        font-weight: bold;
+        font-size: 6em;
+        line-height: 95%;
+        letter-spacing: -0.02em;        
+        margin: 5% 0 10% 0;
+        @media screen and (max-width: $tableWidth) {
+          font-size: 6.5em;
+        }        
+      }
+
+      &-desc{
+        font-size: 1.2em;
+        margin-bottom: 15%;
+        @media screen and (max-width: $tableWidth) {
+          font-size: 3em;
+        }
+
+        &-link{
+          color: $backOrange-color;
+          text-decoration: none;
+          border-bottom: 1px solid $backOrange-color;
+        }
+        &-link:hover{
+          opacity: 0.3;
+        }
+      }
+
+      &-socials{
+        width: 50%;
+        max-width: 267px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @media screen and (max-width: $tableWidth) {
+          max-width: none;
+        }
+        a{
+          display: flex; 
+          justify-content: center;
+          align-items: center; 
+          height: 4em;
+          width: 4em;     
+          margin-right: 2%;
+          background: #EC6133;          
+          color: #ffffff;
+          @media screen and (max-width: $tableWidth) {
+            width: 8em;
+            height: 8em;;
+          }   
+        }
+        &-item{
+          object-fit: contain;   
+          font-size: 2.5em; 
+          margin: 0;
+          padding: 0;            
+          animation: move_soc 2s linear infinite;
+          @media screen and (max-width: $tableWidth) {
+            font-size: 4em;
+          } 
+        }
+
+        a:hover{          
+          background: $white-color;
+          color: $black-color;
+        }
+
+        a.black:hover{
+          background: $black-color;
+        }
+      }
+    }
+  }
+
+  &__right{
+    width: 60%;
+    max-width: 1014px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: $tableWidth) {
+      order: -1;
+      width: 100%;
+      display: block;
+    }    
+
+    &-img{
+      object-fit: contain;
+      height: 100%;
+      @media screen and (max-width: $tableWidth) {
+      height: auto;
+      }
+    }
+  }
+
+  &-white{
+    color: $white-color;
+  }
+}
+
+.br-desc{
+  @media screen and (max-width: $tableWidth) {
+    display: none;
+  }
+}
+
+@keyframes move_soc {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-20deg); }  
+  75% { transform: rotate(20deg); }
+  100% { transform: rotate(0deg); }
+}
+// Modules
+// @import "modules/my-module.scss";
